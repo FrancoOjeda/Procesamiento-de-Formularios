@@ -1,0 +1,29 @@
+{
+  "name": "formularios-con-nodemailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoOjeda/Procesamiento-de-Formularios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancoOjeda/Procesamiento-de-Formularios/issues"
+  },
+  "homepage": "https://github.com/FrancoOjeda/Procesamiento-de-Formularios#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "nodemailer": "^6.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
