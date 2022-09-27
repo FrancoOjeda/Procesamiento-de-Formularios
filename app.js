@@ -1,5 +1,7 @@
 const express = require("express");
 const hbs = require("express-handlebars");
+require("dotenv").config();
+
 const app = express();
 const PORT = 3000;
 

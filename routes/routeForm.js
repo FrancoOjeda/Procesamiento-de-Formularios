@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-
+// require("dotenv").config()
 
 router.get("/", (req, res) =>{
     res.render("home")
 });
 
-router.post("/", (req, res) =>{
+//con async definimos un proceso asincronico, lo que nos va a permitir colocar un await mas adelante
+router.post("/", async (req, res) =>{
     
     const { nombre, apellido, email, password, mensaje} = req.body
     const emailMsg = {
@@ -21,14 +22,22 @@ router.post("/", (req, res) =>{
         host: "smtp.mailtrap.io",
         port: 2525,
         auth: {
-          user: "0230b5fe15befa",
-          pass: "826db73d594008"
+          user: process.env.user,
+          pass: process.env.pass
         }
       });
 
-    transport.sendMail(emailMsg)
+      //definimos una variable que nos va a guardar el resultado del envio del mail, y le decimos que tiene que esperar ese resultado (await)
+    const sendMailStatus = await transport.sendMail(emailMsg)
+      let sendMailFeedBack = "";
 
-    res.render("home", {mensaje: "Mensaje enviado"})
+      if(sendMailStatus.rejected.length){
+        sendMailFeedBack = "No se pudo enviar.";
+      } else {
+        sendMailFeedBack = "Mensaje enviado";
+      }
+
+    res.render("home", { mensaje: sendMailFeedBack})
     
     console.log("Entro un formulario");
 });
