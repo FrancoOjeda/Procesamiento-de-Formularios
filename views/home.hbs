@@ -2,23 +2,31 @@
  <form action="/" method="POST">
         <h2>Registro de Usuario</h2>
 
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="nombre">
+        <label for="name"></label>
+        <input type="text" id="name" name="nombre" placeholder="Nombre..."
+            value= "{{formData.nombre}}">
 
-        <label for="lastName">Apellido</label>
-        <input type="text" id="lastName" name="apellido">
+        <label for="lastName" hidden>Apellido</label>
+        <input type="text" id="lastName" name="apellido" placeholder="Apellido..."
+            value= "{{formData.apellido}}">
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email">
+        <label for="email" hidden>Email</label>
+        <input type="text" id="email" name="email" placeholder="Email..."
+            value= "{{formData.email}}">
         
-        <label for="password">Contaseña</label>
-        <input type="password" id="password" name="password">
+        <label for="password" hidden>Contaseña</label>
+        <input type="password" id="password" name="password" placeholder="Password">
 
-        <textarea name="mensaje" id="mensaje" cols="30" rows="10">Escriba su mensaje</textarea>
+        <label for="mensaje" hidden>Escriba su mensaje</label>
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Escriba su mensaje">
+            {{formData.mensaje}}
+        </textarea>
 
                 {{mensaje}}
 
         <input type="submit" value="Enviar">
     </form>
-
+{{#each arrWarming}}
+<p>{{msg}}</p>
+{{/each}}
 </main>
